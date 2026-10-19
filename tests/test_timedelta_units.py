@@ -24,6 +24,7 @@ def test_subunit_timedelta_roundtrips_without_truncation(unit, serialized):
     assert schema.dump({"duration": value})["duration"] == pytest.approx(serialized)
     assert schema.load({"duration": serialized})["duration"] == value
 
+
 @pytest.mark.parametrize("microseconds", [-123, 123])
 def test_default_seconds_unit_preserves_subsecond_values(microseconds):
     # A named "precision" should not silently round the default seconds unit.
